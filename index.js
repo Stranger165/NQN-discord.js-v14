@@ -1,15 +1,33 @@
-const discord = require("discord.js");
-const client = new discord.Client();
+const { Client, Discord } = require("discord.js");
+const client = new Client({
+  intents: [
+      "GUILDS",
+      "GUILD_MEMBERS",
+      "GUILD_BANS",
+      "GUILD_EMOJIS",
+      "GUILD_INTEGRATIONS",
+      "GUILD_WEBHOOKS",
+      "GUILD_INVITES",
+      "GUILD_VOICE_STATES",
+      "GUILD_PRESENCES",
+      "GUILD_MESSAGES",
+      "GUILD_MESSAGE_REACTIONS",
+      "GUILD_MESSAGE_TYPING",
+      "DIRECT_MESSAGES",
+      "DIRECT_MESSAGE_REACTIONS",
+      "DIRECT_MESSAGE_TYPING",
+  ],
+});
 const { token } = require("./config.json")
 
 client.on("ready", () => {
   console.log("[--------------------- R E A D Y ---------------------]");
-  client.user.setActivity("I am NQN 2");
+  client.user.setActivity("CODED BY CORTEX CRAFT");
 })
 
-client.on("message", async (message) => {
-  if (message.author.bot) return;
-  let msg = message.content;
+client.on("messageCreate", async (messageCreate) => {
+  if (messageCreate.author.bot) return;
+  let msg = messageCreate.content;
 
   let emojis = msg.match(/(?<=:)([^:\s]+)(?=:)/g)
   if (!emojis) return;
@@ -21,24 +39,24 @@ client.on("message", async (message) => {
     else msg = msg.replace(new RegExp(":" + m + ":", "g"), emoji.toString());
   })
 
-  if (msg === message.content) return;
+  if (msg === messageCreate.content) return;
 
-  let webhook = await message.channel.fetchWebhooks();
+  let webhook = await messageCreate.channel.fetchWebhooks();
   let number = randomNumber(1, 2);
   webhook = webhook.find(x => x.name === "NQN" + number);
 
   if (!webhook) {
-    webhook = await message.channel.createWebhook(`NQN` + number, {
+    webhook = await messageCreate.channel.createWebhook(`NQN` + number, {
       avatar: client.user.displayAvatarURL({ dynamic: true })
     });
   }
 
   await webhook.edit({
-    name: message.member.nickname ? message.member.nickname : message.author.username,
-    avatar: message.author.displayAvatarURL({ dynamic: true })
+    name: messageCreate.member.nickname ? messageCreate.member.nickname : messageCreate.author.username,
+    avatar: messageCreate.author.displayAvatarURL({ dynamic: true })
   })
 
-  message.delete().catch(err => { })
+  messageCreate.delete().catch(err => { })
   webhook.send(msg).catch(err => { })
 
   await webhook.edit({
