@@ -1,15 +1,16 @@
 {
-  "name": "sdsd",
-  "version": "2.0.0",
+  "name": "NQN BOT DISCORD.JS v13",
+  "version": "3.2.0",
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "discord.js": "^13.0.0-dev.4d53d0f.1626609771",
+    "discord.js": "^13.1.0",
     "fsevents": "^2.3.2"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js
   },
   "author": "",
   "license": "ISC"
