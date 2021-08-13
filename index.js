@@ -4,7 +4,6 @@ const client = new Client({
       "GUILDS",
       "GUILD_MEMBERS",
       "GUILD_BANS",
-      "GUILD_EMOJIS",
       "GUILD_INTEGRATIONS",
       "GUILD_WEBHOOKS",
       "GUILD_INVITES",
@@ -22,7 +21,7 @@ const { token } = require("./config.json")
 
 client.on("ready", () => {
   console.log("[--------------------- R E A D Y ---------------------]");
-  client.user.setActivity("CODED BY CORTEX CRAFT");
+  client.user.setActivity("CODED BY CORTEX CRAFT YT");
 })
 
 client.on("messageCreate", async (messageCreate) => {
