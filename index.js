@@ -1,15 +1,23 @@
 const { Client, Discord } = require("discord.js");
+const chalk = require("chalk");
 const client = new Client({
     intents: 32767,
 });
 const { token } = require("./config.json")
 
 client.on("ready", () => {
-  console.log("[--------------------- R E A D Y ---------------------]");
-  client.user.setActivity("CODED BY CORTEX CRAFT YT");
+  (console.log(
+    chalk.cyan("[Information] ") + chalk.blue(`Connected to Mongodb`))
+  )
+  client.user.setActivity("CODED BY Frazix YT");
 })
 
 client.on("messageCreate", async (messageCreate) => {
+    
+       if(messageCreate.content.includes(`<Your Bot ID>`)) { 
+          await message.channel.send("Hi there, I am nqn V2");
+        }
+    
   if (messageCreate.author.bot) return;
   let msg = messageCreate.content;
 
