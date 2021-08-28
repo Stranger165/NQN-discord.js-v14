@@ -1,17 +1,15 @@
 {
-  "name": "NQN BOT DISCORD.JS v13",
-  "version": "4.5.0",
+  "name": "nqn-bot",
+  "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "dependencies": {
-    "discord.js": "^13.1.0",
-    "fsevents": "^2.3.2"
-  },
-  "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "discord.js": "^13.1.0"
+  }
 }
