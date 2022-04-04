@@ -1,6 +1,7 @@
 # NQN-discord.js
 🎄bot like nqn
 
-🎄npm i discord.js to install discord.js v13
+🎄npm i discord.js@dev to install discord.js v14
 
 🎃 REQUIRE node.js v16
+
