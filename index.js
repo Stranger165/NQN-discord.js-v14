@@ -7,15 +7,15 @@ const { token } = require("./config.json")
 
 client.on("ready", () => {
   (console.log(
-    chalk.cyan("[Information] ") + chalk.blue(`Connected to Mongodb`))
+    chalk.cyan("[Information] ") + chalk.blue(`Bot Started`))
   )
-  client.user.setActivity("CODED BY Frazix YT");
+  client.user.setActivity("CODED BY RECOLXY");
 })
 
 client.on("messageCreate", async (messageCreate) => {
     
        if(messageCreate.content.includes(`<Your Bot ID>`)) { 
-          await message.channel.send("Hi there, I am nqn V2");
+          await message.channel.send("Hi there, I am nqn V3");
         }
     
   if (messageCreate.author.bot) return;
